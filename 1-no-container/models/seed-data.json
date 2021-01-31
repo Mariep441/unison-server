@@ -20,5 +20,46 @@
       "email": "bart@simpson.com",
       "password": "secret"
     }
+  },
+  "tasks": {
+    "_model": "Task",
+    "Task1": {
+      "name": "the first Task",
+      "description": "Go and get a coffee",
+      "priorityLevel": 4,
+      "client": "Client1",
+      "skills": {
+        "accounting": "false",
+        "transferAgency": "false",
+        "corporateSecretarial": "false",
+        "administrative": "true",
+        "seniorManagement": "false",
+        "it": "false"
+      },
+      "timeToComplete": 60,
+      "dependencies": "->tasks.Task2",
+      "nextStep": "->tasks.Task2",
+      "maker": "->users.homer",
+      "checker": "->users.bart"
+    },
+    "Task2": {
+      "name": "the second Task",
+      "description": "Start the computer",
+      "priorityLevel": 5,
+      "client": "Client1",
+      "skills": {
+        "accounting": "false",
+        "transferAgency": "false",
+        "corporateSecretarial": "false",
+        "administrative": "true",
+        "seniorManagement": "false",
+        "it": "false"
+      },
+      "timeToComplete": 10,
+      "dependencies": "->tasks.Task1",
+      "nextStep": "->tasks.Task1",
+      "maker": "->users.homer",
+      "checker": "->users.bart"
+    }
   }
 }

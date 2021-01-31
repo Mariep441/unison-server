@@ -1,6 +1,7 @@
 'use strict';
 
 const User = require('./models/user');
+const Task = require('./models/task');
 const Hapi = require('@hapi/hapi');
 const db = require('./models/db.js');
 
@@ -38,5 +39,15 @@ server.route({
         return users;
     }
 });
+
+server.route({
+    method: 'GET',
+    path:'/api/tasks',
+    handler: async function (request, h) {
+        const tasks = await Task.find();
+        return tasks;
+    }
+});
+
 
 init();
