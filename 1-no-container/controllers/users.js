@@ -4,20 +4,14 @@ const User = require('../models/user');
 const Boom = require('@hapi/boom');
 
 const Users = {
-  find: {
-    auth: {
-      strategy: 'jwt',
-    },
+  find: {auth: {strategy: 'jwt',},
     handler: async function (request, h) {
       const users = await User.find();
       return users;
     },
   },
 
-  findOne: {
-    auth: {
-      strategy: 'jwt',
-    },
+  findOne: {auth: {strategy: 'jwt',},
     handler: async function (request, h) {
       try {
         const user = await User.findOne({ _id: request.params.id });
@@ -43,20 +37,14 @@ const Users = {
     },
   },
 
-  deleteAll: {
-    auth: {
-      strategy: 'jwt',
-    },
+  deleteAll: {auth: {strategy: 'jwt',},
     handler: async function (request, h) {
       await User.deleteMany({});
       return { success: true };
     },
   },
 
-  deleteOne: {
-    auth: {
-      strategy: 'jwt',
-    },
+  deleteOne: {auth: {strategy: 'jwt',},
     handler: async function (request, h) {
       const user = await User.deleteOne({ _id: request.params.id });
       if (user) {

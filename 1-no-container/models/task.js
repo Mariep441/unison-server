@@ -2,7 +2,7 @@
 
 const Mongoose = require('mongoose');
 const Schema = Mongoose.Schema;
-const Boom = require('@hapi/boom');
+
 
 const taskSchema = new Schema({
     name: String,
