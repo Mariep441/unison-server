@@ -1,7 +1,7 @@
 {
-  "users": {
-    "_model": "User",
-    "homer": {
+  "unisonService": "http://localhost:4000",
+  "users": [
+    {
       "firstName": "Homer",
       "lastName": "Simpson",
       "email": "homer@simpson.com",
@@ -15,7 +15,7 @@
       "technicalKnowledge": 5,
       "management": 1
     },
-    "marge": {
+    {
       "firstName": "Admin",
       "lastName": "1",
       "email": "admin@123.com",
@@ -29,7 +29,7 @@
       "technicalKnowledge": 5,
       "management": 1
     },
-    "bart": {
+    {
       "firstName": "Bart",
       "lastName": "Simpson",
       "email": "bart@simpson.com",
@@ -43,50 +43,91 @@
       "technicalKnowledge": 5,
       "management": 1
     }
-  },
-  "processes": {
-    "_model": "Process",
-    "process1": {
+  ],
+  "newUser": [
+    {
+      "firstName": "Maggie",
+      "lastName": "Simpson",
+      "email": "maggie@simpson.com",
+      "password": "secret"
+    },
+    {
+      "firstName": "Abraham",
+      "lastName": "Simpson",
+      "email": "abraham@simpson.com",
+      "password": "secret"
+    },
+    {
+      "firstName": "Ned",
+      "lastName": "Flanders",
+      "email": "ned@simpson.com",
+      "password": "secret"
+    },
+    {
+      "firstName": "Maud",
+      "lastName": "Flanders",
+      "email": "maud@simpson.com",
+      "password": "secret"
+    },
+    {
+      "firstName": "aaa",
+      "lastName": "111",
+      "email": "aaa@111.com",
+      "password": "secret"
+    },
+    {
+      "firstName": "bbb",
+      "lastName": "222",
+      "email": "bbb@222.com",
+      "password": "secret"
+    },
+    {
+      "firstName": "ccc",
+      "lastName": "333",
+      "email": "ccc@333.com",
+      "password": "secret"
+    }
+  ],
+  "processes": [
+    {
       "name": "Process1",
       "client": "Client 1",
       "frequency": "daily",
       "startDate": "2021-04-09 05:52:16.594Z"
     },
-    "process2": {
+    {
       "name": "Process2",
       "client": "Client 3",
       "frequency": "monthly",
       "startDate": "2021-04-10 05:52:16.594Z"
     }
+  ],
+  "newProcess": {
+    "name": "Process3",
+    "client": "Client 5",
+    "frequency": "monthly",
+    "startDate": "2021-04-20 05:52:16.594Z"
   },
-  "tasks": {
-    "_model": "Task",
-    "task1": {
+  "tasks": [
+    {
       "name": "The first Task",
       "description": "The first Task of Process 1",
-      "process": "->processes.process1",
       "criticalPath": "true",
       "alert": "false",
       "priorityLevel": 4,
       "client": "Client1",
       "department": "accounting",
       "location": "Luxembourg",
-      "startDate": "2021-04-19",
+      "startDate": "2021-04-19T00:00:00.000Z",
       "estimatedTimeToComplete": 60,
       "timeSpent": 5,
-      "percentageOfCompletion":10,
-      "deadline": "2021-04-25",
-      "nextStep": "->tasks.Task2",
-      "creator": "->users.homer",
-      "maker": "->users.homer",
-      "checker": "->users.bart",
-      "lastUpdate": "2021-04-03 ",
+      "percentageOfCompletion": 10,
+      "deadline": "2021-04-25T00:00:00.000Z",
       "validated": "false"
     },
-    "task2": {
+    {
       "name": "The second Task",
       "description": "The second Task of Process 1",
-      "process": "->processes.process1",
       "criticalPath": "true",
       "alert": "false",
       "priorityLevel": 4,
@@ -98,18 +139,12 @@
       "timeSpent": 5,
       "percentageOfCompletion": 0,
       "deadline": "2021-04-03",
-      "dependencies": "->tasks.Task1",
-      "nextStep": "->tasks.Task3",
-      "creator": "->users.homer",
-      "maker": "->users.homer",
-      "checker": "->users.bart",
       "lastUpdate": "2021-04-03",
       "validated": "false"
     },
-    "task3": {
+    {
       "name": "The third Task",
       "description": "The third Task of Process 1",
-      "process": "->processes.process1",
       "criticalPath": "true",
       "alert": "false",
       "priorityLevel": 4,
@@ -121,17 +156,12 @@
       "timeSpent": 5,
       "percentageOfCompletion": 10,
       "deadline": "2021-04-03",
-      "dependencies": "->tasks.Task2",
-      "creator": "->users.homer",
-      "maker": "->users.homer",
-      "checker": "->users.bart",
       "lastUpdate": "2021-04-03",
       "validated": "false"
     },
-    "task4": {
+    {
       "name": "The first Task",
       "description": "The first Task of Process 2",
-      "process": "->processes.process2",
       "criticalPath": "true",
       "alert": "false",
       "priorityLevel": 4,
@@ -143,16 +173,12 @@
       "timeSpent": 5,
       "percentageOfCompletion": 10,
       "deadline": "2021-04-03",
-      "creator": "->users.homer",
-      "maker": "->users.homer",
-      "checker": "->users.bart",
       "lastUpdate": "2021-04-03",
       "validated": "false"
     }
-  },
-  "feedbacks": {
-    "_model": "Feedback",
-    "feedback1": {
+  ],
+  "feedbacks": [
+    {
       "comment": "this is very difficult",
       "difficulty": "High",
       "communication": 1,
@@ -164,7 +190,7 @@
       "task": "->tasks.task1",
       "user": "->users.homer"
     },
-    "feedback2": {
+    {
       "comment": "this is very easy",
       "difficulty": "High",
       "communication": 1,
@@ -176,5 +202,5 @@
       "task": "->tasks.task2",
       "user": "->users.bart"
     }
-  }
+  ]
 }
