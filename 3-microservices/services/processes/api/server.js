@@ -1,15 +1,15 @@
 'use strict';
 
-const utils = require('./api/utils.js');
+const utils = require('../../feedbacks/api/utils.js');
 const Hapi = require('@hapi/hapi');
 
 const server = Hapi.server({
-    port: 4000,
+    port: 3000,
     host: 'localhost',
     routes: { cors: true }
 });
 
-require('./models/db.js');
+require('../../feedbacks/models/db.js');
 
 async function init() {
     await server.register(require('@hapi/inert'));
@@ -38,7 +38,7 @@ async function init() {
     });
 
     server.auth.default('session');
-    server.route(require('./routes-api'));
+    server.route(require('../../feedbacks/routes-api'));
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);
 }

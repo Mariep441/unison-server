@@ -2,18 +2,11 @@
 
 const utils = require('./api/utils.js');
 const Hapi = require('@hapi/hapi');
-const fs = require('fs');
-const moment = require('moment')
-
 
 const server = Hapi.server({
-    port: 4000,
+    port: 3000,
     host: 'localhost',
     routes: { cors: true }
-//    tls: {
-//        key: fs.readFileSync('keys/private/webserver.key'),
-//      cert: fs.readFileSync('keys/webserver.crt')
-//    }
 });
 
 require('./models/db.js');
