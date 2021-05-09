@@ -2,7 +2,7 @@ REGION=$1
 STACK_NAME=$2
 
 DEPLOYABLE_SERVICES=(
-	api
+	app
 );
 
 PRIMARY='\033[0;34m'
