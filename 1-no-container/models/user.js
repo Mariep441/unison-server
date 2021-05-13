@@ -11,6 +11,7 @@ const userSchema = new Schema({
     password: String,
     role: String,
     active: Boolean,
+    admin: Boolean,
     communication: Number,
     computerLiteracy: Number,
     innovativeThinking: Number,

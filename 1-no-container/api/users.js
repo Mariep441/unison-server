@@ -96,7 +96,7 @@ const Users = {
     },
   },
 
-  deleteOne: {auth: {strategy: 'jwt',},
+  deleteOne: {auth: {strategy: 'jwt', scope: ['admin']},
     handler: async function (request, h) {
       const user = await User.deleteOne({ _id: request.params.id });
       if (user) {
