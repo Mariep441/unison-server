@@ -1,10 +1,10 @@
 {
   "users": {
     "_model": "User",
-    "homer": {
-      "firstName": "Homer",
-      "lastName": "Simpson",
-      "email": "homer@simpson.com",
+    "user1": {
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "john@smith.com",
       "password": "secret",
       "role": "user",
       "active": "true",
@@ -15,11 +15,11 @@
       "technicalKnowledge": 5,
       "management": 1
     },
-    "marge": {
-      "firstName": "Admin",
-      "lastName": "1",
-      "email": "admin@123.com",
-      "password": "123",
+    "user2": {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "jane@doe.com",
+      "password": "secret",
       "role": "administrator",
       "active": "true",
       "communication": 1,
@@ -29,10 +29,10 @@
       "technicalKnowledge": 5,
       "management": 1
     },
-    "bart": {
-      "firstName": "Bart",
-      "lastName": "Simpson",
-      "email": "bart@simpson.com",
+    "user3": {
+      "firstName": "Juan",
+      "lastName": "Perez",
+      "email": "juan@perez.com",
       "password": "secret",
       "role": "manager",
       "active": "true",
@@ -50,13 +50,22 @@
       "name": "Process1",
       "client": "Client 1",
       "frequency": "daily",
-      "startDate": "2021-04-09 05:52:16.594Z"
+      "startDate": "2021-04-09 05:52:16.594Z",
+      "deadline": "2021-04-25 05:52:16.594Z"
     },
     "process2": {
       "name": "Process2",
       "client": "Client 3",
       "frequency": "monthly",
-      "startDate": "2021-04-10 05:52:16.594Z"
+      "startDate": "2021-04-10 05:52:16.594Z",
+      "deadline": "2021-04-25 05:52:16.594Z"
+    },
+    "process3": {
+      "name": "Process2",
+      "client": "Client 4",
+      "frequency": "monthly",
+      "startDate": "2021-04-15 05:52:16.594Z",
+      "deadline": "2021-04-25 05:52:16.594Z"
     }
   },
   "tasks": {
@@ -69,17 +78,17 @@
       "alert": "false",
       "priorityLevel": 4,
       "client": "Client1",
-      "department": "accounting",
+      "department": "Accounting",
       "location": "Luxembourg",
       "startDate": "2021-04-19",
       "estimatedTimeToComplete": 60,
-      "timeSpent": 5,
-      "percentageOfCompletion":10,
+      "timeSpent": 65,
+      "percentageOfCompletion":100,
       "deadline": "2021-04-25",
       "nextStep": "->tasks.Task2",
-      "creator": "->users.homer",
-      "maker": "->users.homer",
-      "checker": "->users.bart",
+      "creator": "->users.user1",
+      "maker": "->users.user1",
+      "checker": "->users.user2",
       "lastUpdate": "2021-04-03 ",
       "validated": "false"
     },
@@ -91,7 +100,7 @@
       "alert": "false",
       "priorityLevel": 4,
       "client": "Client1",
-      "department": "transferAgency",
+      "department": "Transfer Agency",
       "location": "Luxembourg",
       "startDate": "2021-04-01",
       "estimatedTimeToComplete": 50,
@@ -100,9 +109,9 @@
       "deadline": "2021-04-03",
       "dependencies": "->tasks.Task1",
       "nextStep": "->tasks.Task3",
-      "creator": "->users.homer",
-      "maker": "->users.homer",
-      "checker": "->users.bart",
+      "creator": "->users.user1",
+      "maker": "->users.user1",
+      "checker": "->users.user2",
       "lastUpdate": "2021-04-03",
       "validated": "false"
     },
@@ -114,7 +123,7 @@
       "alert": "false",
       "priorityLevel": 4,
       "client": "Client1",
-      "department": "transferAgency",
+      "department": "Transfer Agency",
       "location": "Luxembourg",
       "startDate": "2021-04-01 ",
       "estimatedTimeToComplete": 50,
@@ -123,8 +132,8 @@
       "deadline": "2021-04-03",
       "dependencies": "->tasks.Task2",
       "creator": "->users.homer",
-      "maker": "->users.homer",
-      "checker": "->users.bart",
+      "maker": "->users.user1",
+      "checker": "->users.user3",
       "lastUpdate": "2021-04-03",
       "validated": "false"
     },
@@ -136,16 +145,58 @@
       "alert": "false",
       "priorityLevel": 4,
       "client": "Client2",
-      "department": "transferAgency",
-      "location": "Luxembourg",
-      "startDate": "2021-04-01 ",
+      "department": "Transfer Agency",
+      "location": "Canada",
+      "startDate": "2021-04-10 ",
       "estimatedTimeToComplete": 50,
       "timeSpent": 5,
       "percentageOfCompletion": 10,
-      "deadline": "2021-04-03",
-      "creator": "->users.homer",
-      "maker": "->users.homer",
-      "checker": "->users.bart",
+      "deadline": "2021-04-13",
+      "creator": "->users.user2",
+      "maker": "->users.user2",
+      "checker": "->users.user3",
+      "lastUpdate": "2021-04-10",
+      "validated": "false"
+    },
+    "task4": {
+      "name": "The second Task",
+      "description": "The second Task of Process 2",
+      "process": "->processes.process2",
+      "criticalPath": "true",
+      "alert": "false",
+      "priorityLevel": 4,
+      "client": "Client2",
+      "department": "transferAgency",
+      "location": "Canada",
+      "startDate": "2021-04-12 ",
+      "estimatedTimeToComplete": 60,
+      "timeSpent": 0,
+      "percentageOfCompletion": 0,
+      "deadline": "2021-04-13",
+      "creator": "->users.user2",
+      "maker": "->users.user2",
+      "checker": "->users.user3",
+      "lastUpdate": "2021-04-03",
+      "validated": "false"
+    },
+    "task5": {
+      "name": "The first Task",
+      "description": "The first Task of Process 3",
+      "process": "->processes.process2",
+      "criticalPath": "true",
+      "alert": "false",
+      "priorityLevel": 4,
+      "client": "Client2",
+      "department": "Product",
+      "location": "US",
+      "startDate": "2021-04-15 ",
+      "estimatedTimeToComplete": 60,
+      "timeSpent": 0,
+      "percentageOfCompletion": 0,
+      "deadline": "2021-04-18",
+      "creator": "->users.user1",
+      "maker": "->users.user1",
+      "checker": "->users.user3",
       "lastUpdate": "2021-04-03",
       "validated": "false"
     }
@@ -162,7 +213,7 @@
       "technicalKnowledge": 5,
       "management": 1,
       "task": "->tasks.task1",
-      "user": "->users.homer"
+      "user": "->users.user1"
     },
     "feedback2": {
       "comment": "this is very easy",
@@ -174,7 +225,7 @@
       "technicalKnowledge": 5,
       "management": 4,
       "task": "->tasks.task2",
-      "user": "->users.bart"
+      "user": "->users.user2"
     }
   }
 }

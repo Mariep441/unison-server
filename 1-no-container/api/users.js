@@ -46,8 +46,6 @@ const Users = {
    }
   },
 
-
-
   signup: {auth: false,
     handler: async function (request, h) {
       const payload = request.payload;
@@ -56,7 +54,6 @@ const Users = {
         const message = 'Email address is already registered';
         throw Boom.badData(message);
       }
-
       const hash = await bcrypt.hash(payload.password, saltRounds);    // ADDED
 
       const newUser = new User({

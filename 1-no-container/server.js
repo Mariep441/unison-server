@@ -2,7 +2,6 @@
 
 const utils = require('./api/utils.js');
 const Hapi = require('@hapi/hapi');
-const jwt = require('jsonwebtoken');
 
 const server = Hapi.server({
     port: 4000,
