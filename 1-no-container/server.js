@@ -3,10 +3,14 @@
 const utils = require('./api/utils.js');
 const Hapi = require('@hapi/hapi');
 const secret = require('./config');
+const fs = require('fs');
 
 const server = Hapi.server({
-    port: 4000,
-    host: 'localhost',
+    port: 3443,
+    tls: {
+        key: fs.readFileSync('keys/private/webserver.key'),
+        cert: fs.readFileSync('keys/webserver.crt')
+    },
     routes: { cors: true }
 });
 
