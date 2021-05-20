@@ -1,17 +1,30 @@
-version: "2"
+version: '2.1'
 services:
-  app:
-    container_name: server
+  mongodb:
+    image: mongo:latest
     restart: always
-    build: .
-    ports:
-      - "3000:3000"
-    links:
-      - mongo
-  mongo:
-    container_name: mongo
-    image: mongo
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/db/data
+      - MONGO_LOG_DIR=/dev/null
     volumes:
-      - ./data:/data/db
+      - ./db/data:/data/db
     ports:
-      - "27017:27017"
+      - 27017:27017
+    command: mongod --bind_ip_all --smallfiles --logpath=/dev/null # --quiet
+
+  web:
+    build: .
+    links:
+      - mongodb
+    container_name: hapi.js
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=production
+      - PORT=8000
+      - DATABASE_URL=mongodb://localhost:27017/Unison
+      - key = secretpasswordnotrevealedtoanyone
+    depends_on:
+      - mongodb

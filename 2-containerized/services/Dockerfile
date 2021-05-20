@@ -2,8 +2,8 @@
 FROM node:latest
 RUN mkdir -p /usr/src/server
 WORKDIR /usr/src/app
-COPY package.json /usr/src/server/
+COPY package*.json ./
 RUN npm install
 COPY . /usr/src/server
-EXPOSE 4000
+EXPOSE 8000
 CMD ["node", "server.js"]
