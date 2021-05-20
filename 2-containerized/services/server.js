@@ -4,8 +4,7 @@ const utils = require('./api/utils.js');
 const Hapi = require('@hapi/hapi');
 
 const server = Hapi.server({
-    port: 4000,
-    host: 'localhost',
+    port: 8000,
     routes: { cors: true }
 });
 
