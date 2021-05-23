@@ -2,7 +2,7 @@ REGION=$1
 STACK_NAME=$2
 
 DEPLOYABLE_SERVICES=(
-	app
+	server
 );
 
 PRIMARY='\033[0;34m'
@@ -85,7 +85,7 @@ do
 			"cpu": 256,
 			"memory": 256,
 			"portMappings": [{
-				"containerPort": 3000,
+				"containerPort": 8000,
 				"hostPort": 0
 			}],
 			"essential": true
@@ -169,7 +169,7 @@ do
 				[{
 					"targetGroupArn": "$TARGET_GROUP_ARN",
 					"containerName": "$SERVICE_NAME",
-					"containerPort": 3000
+					"containerPort": 8000
 				}]
 			EOF)
 

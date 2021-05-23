@@ -18,18 +18,14 @@ async function init() {
     await server.register(require('hapi-auth-jwt2'));
 
     server.validator(require('@hapi/joi'))
-
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);
-
-
 
     server.auth.strategy('jwt', 'jwt', {
         key: secret,
         validate: utils.validate,
         verifyOptions: { algorithms: ['HS256'] },
     });
-
 
     server.route(require('./routes-api'));
     await server.start();

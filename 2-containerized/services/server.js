@@ -21,22 +21,12 @@ async function init() {
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);
 
-    server.auth.strategy('session', 'cookie', {
-        cookie: {
-            name: "process.env.cookie_name",
-            password: "process.env.cookie_password",
-            isSecure: false
-        },
-        redirectTo: '/'
-    });
-
     server.auth.strategy('jwt', 'jwt', {
         key: 'secretpasswordnotrevealedtoanyone',
         validate: utils.validate,
         verifyOptions: { algorithms: ['HS256'] },
     });
 
-    server.auth.default('session');
     server.route(require('./routes-api'));
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);

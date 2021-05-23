@@ -1,8 +1,9 @@
-FROM mhart/alpine-node:7.10.1
-
-WORKDIR /srv
-ADD . .
+FROM node:latest
+RUN  mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json ./
 RUN npm install
+COPY . .
+EXPOSE 8000
+CMD ["npm", "start"]
 
-EXPOSE 3000
-CMD ["node", "server.js"]

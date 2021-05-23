@@ -5,7 +5,7 @@ const Mongoose = require('mongoose');
 Mongoose.set('useNewUrlParser', true);
 Mongoose.set('useUnifiedTopology', true);
 
-Mongoose.connect('mongodb://localhost/Unison');
+Mongoose.connect('mongodb://mongo:27017/Unison');
 const db = Mongoose.connection;
 
 db.on('disconnected', function() {
